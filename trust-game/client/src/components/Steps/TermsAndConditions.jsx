@@ -16,12 +16,14 @@ export default function TermsAndConditions({ next }) {
         <div className="flex flex-col items-center justify-center w-full min-h-screen bg-gray-100 py-4 px-4">
             {/* Main Content */}
             <div className="max-w-5xl w-full bg-white shadow-md rounded-lg overflow-hidden">
-                {/* UCL Logo Banner */}
-                <img
-                    src="/images/uclBannerRed.jpg"
-                    alt="UCL Banner"
-                    className="w-full object-cover"
-                />
+                {/* Heidleberg Logo Banner */}
+                <div className="w-full bg-white flex items-center justify-center" style={{ height: "163px" }}>
+                    <img
+                        src="/images/Heidelberg_logo.jpg"
+                        alt="UCL Banner"
+                        className="w-auto h-full"
+                    />
+                </div>
 
                 {/* Content Section */}
                 <div className="p-6">
@@ -29,7 +31,8 @@ export default function TermsAndConditions({ next }) {
                         title="A study about decision-making in a multiplayer context"
                     />
                     <ScrollableContent>
-                        <Section title="Information about this study"> <br />
+                        <Section title="Information about this study">
+                            <br />
                             Thank you for considering taking part in this research. Please read the following information carefully.
                             <ul className="list-disc list-inside mt-2">
                                 <li>The approximate duration of this study is around <strong>30 minutes</strong>.</li>
@@ -86,7 +89,7 @@ export default function TermsAndConditions({ next }) {
                     <ConsentButton
                         isChecked={isChecked}
                         onClick={() => {
-                            if (next) next(); // Navigate to the next step
+                            if (next) next();
                         }}
                     />
                 </div>
