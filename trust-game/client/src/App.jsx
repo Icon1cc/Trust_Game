@@ -4,7 +4,9 @@ import { EmpiricaMenu, EmpiricaParticipant } from "@empirica/core/player/react";
 import React from "react";
 import { Game } from "./Game";
 import { ExitSurvey } from "./intro-exit/ExitSurvey";
-import { Introduction } from "./intro-exit/Introduction";
+import InfoSheet from "./components/Steps/InfoSheet";
+import TermsAndConditions from "./components/Steps/TermsAndConditions";
+import ProlificIDInput from "./components/Steps/ProlificIDInput";
 
 export default function App() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -13,12 +15,16 @@ export default function App() {
   const { protocol, host } = window.location;
   const url = `${protocol}//${host}/query`;
 
-  function introSteps({ game, player }) {
-    return [Introduction];
+  function introSteps() {
+    return [
+      ({ next }) => <InfoSheet next={next} />,
+      ({ next }) => <TermsAndConditions next={next} />,
+      ({ next }) => <ProlificIDInput next={next} />,
+    ];
   }
 
-  function exitSteps({ game, player }) {
-    return [ExitSurvey];
+  function exitSteps() {
+    return [({ next }) => <ExitSurvey next={next} />];
   }
 
   return (
